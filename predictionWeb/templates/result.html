@@ -1,0 +1,144 @@
+
+<style>
+	html, body { margin:0; padding:0; }
+	.top{
+		position: absolute;
+		top:0px;
+		width:100%;
+		height:7%;
+		background: #450455;
+	}
+
+	.link1{
+		position: absolute;
+		top:60px;
+	}
+
+	.link2{
+		position: absolute;
+		top:60px;
+		left: 60px;
+	}
+
+	.link3{
+		position: absolute;
+		top:60px;
+		left: 150px;
+    }
+
+    .res{
+        position: absolute;
+        top:100px;
+		left: 100px;
+    }
+
+    .imgshow{
+        position: absolute;
+        top:200px;
+		width: 50%;
+  		height: auto;
+    }
+
+	span{
+		color: red;
+	}
+
+	.content-table{
+		border-collapse: collapse;
+    	margin: 25px 0;
+    	font-size: 0.9em;
+    	font-family: sans-serif;
+    	min-width: 400px;
+    	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	}
+
+	.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+	}
+
+	.content-table th,
+	.content-table td {
+    padding: 12px 15px;
+	}
+
+	.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+	}
+
+	.content-table tbody tr:nth-of-type(even) {
+    	background-color: #f3f3f3;
+	}	
+
+	.content-table tbody tr:last-of-type {
+   		border-bottom: 2px solid #009879;
+	}
+
+	.content-table tbody tr.active-row {
+    	font-weight: bold;
+    	color: #009879;
+	}
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Result</title>
+
+  </head>
+
+  <body>
+    <div class = "top">
+		<div style="font-family: Arial, Helvetica, sans-serif;color:white;font-size: 45px"> 
+			DATA7903 Capstone Project: TransLink Passenger Flow Prediction 
+		</div>
+	</div>
+
+	<a class = "link1" href="{{ url_for('home') }}" >Home</a>
+	<a class = "link2" href="{{ url_for('prediction') }}" >Prediction</a>
+	<a class = "link3" href="{{ url_for('model') }}" >Model</a>
+
+	<h2 class="res">Predicted passenger flow is <span>{{prediction}} </span> on {{year}}-{{month}}-{{day}}
+		<br>
+		Real     &nbsp&nbsp&nbsp &nbsp&nbsp passenger flow is {{true_sum}}.
+	</h2>
+
+	<img src="{{ image }}" class="imgshow"/>
+
+	<div style="width:500px;height:500;overflow-y:scroll;overflow-x:none; position: absolute;top:80px;left: 800px;">
+		<table class="content-table"> 
+			<thead>
+				<tr>
+					<th>Time Period</th>
+					<th>Passenger Flow</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for period, prediction in my_list %}
+				<tr>
+					<td>{{ period }}</td>
+					<td>{{ prediction }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	{% if goodness %}
+	<img src="/static/img/catSleep.jpeg" alt="catSleep" style="position: absolute;top: 580px;left: 290px;width:10%;height: auto"> 
+	{% else %}
+	<img src="/static/img/catSit.jpeg" alt="catSit" style="position: absolute;top: 580px;left: 260px;width:15%;height: auto"> 
+	<p style="position: absolute;top: 730px;left: 285px;font-family: Arial, Helvetica, sans-serif;font-size: 20px;">What should I do?</p>
+	{% endif %}
+  </body>
+</html>
+
+
+

@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}Prediction{% endblock %}
+{% block body %}
+
+<style>
+.dis{
+    display:inline;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.picLeft{
+    position: absolute;
+    top: 450px;
+    left: 80px;
+    width: 200px;
+}
+
+.picRight{
+    position: absolute;
+    top: 450px;
+    left: 920px;
+}
+</style>
+
+<div class = "preBox" style="text-align: center;">
+    <form action="{{ url_for('predict')}}" method="POST">
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;">Enter the time period you want to predict Here</p>
+    <!-- <input type="text" name="comment"/> -->
+    <p class="dis">Year:  &nbsp</p>
+    <textarea name="year" rows="2" cols="10" placeholder="e.g. 2018"></textarea>
+    <br>
+    <p class="dis">Month: </p>
+    <textarea name="month" rows="2" cols="10" placeholder="e.g. 7"></textarea>
+    <br>
+    <p class="dis">Day:&nbsp&nbsp&nbsp&nbsp</p>
+    <textarea name="day" rows="2" cols="10" placeholder="e.g. 25"></textarea>
+    <br>
+
+    <input type="submit" class="btn-info" value="predict">
+    </form>
+</div>
+
+
+    <img src="/static/img/cathead.jpeg" alt="cathead" style="position: absolute;top: 450px;left: 400px;width:10%;height: auto"> 
+    <img src="/static/img/catLook.jpeg" alt="catLook" style="position: absolute;top: 450px;left: 870px; width:10%;height: auto"> 
+
+{% endblock %}

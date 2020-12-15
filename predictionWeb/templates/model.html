@@ -1,0 +1,145 @@
+<style>
+	html, body { margin:0; padding:0; }
+	.top{
+		position: absolute;
+		top:0px;
+		width:100%;
+		height:7%;
+		background: #450455;
+	}
+
+	.link1{
+		position: absolute;
+		top:60px;
+	}
+
+	.link2{
+		position: absolute;
+		top:60px;
+		left: 60px;
+	}
+
+	.link3{
+		position: absolute;
+		top:60px;
+		left: 150px;
+    }
+
+    div.polaroid1 {  
+        position: absolute;
+		top:100px;
+		left: 120px;
+        width: 500px;   
+        height:300px;
+        background-color: white;   
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+        margin-bottom: 20px; 
+        padding: 10px 30px
+    }   
+
+    div.polaroid2 {  
+        position: absolute;
+		top:100px;
+		left: 730px;
+        width: 500px;   
+        height:300px;
+        background-color: white;   
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+        margin-bottom: 20px; 
+        padding: 10px 30px
+    }   
+
+    div.polaroid3 {  
+        position: absolute;
+		top:450px;
+		left: 120px;
+        width: 500px;   
+        height:300px;
+        background-color: white;   
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+        margin-bottom: 20px; 
+        padding: 10px 30px
+    }  
+
+    div.polaroid4 {  
+        position: absolute;
+		top:450px;
+		left: 730px;
+        width: 500px;   
+        height:300px;
+        background-color: white;   
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+        margin-bottom: 20px; 
+        padding: 10px 30px
+    }  
+
+    div.con { 
+    text-align: left;   
+    }   
+
+    section{
+    display:flex;
+    }
+    section div{
+    float:left;
+    margin:20px;
+    }
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Result</title>
+
+  </head>
+
+  <body>
+    <div class = "top">
+		<div style="font-family: Arial, Helvetica, sans-serif;color:white;font-size: 45px"> 
+			DATA7903 Capstone Project: TransLink Passenger Flow Prediction 
+		</div>
+	</div>
+
+	<a class = "link1" href="{{ url_for('home') }}" >Home</a>
+	<a class = "link2" href="{{ url_for('prediction') }}" >Prediction</a>
+	<a class = "link3" href="{{ url_for('model') }}" >Model</a>
+
+    <section>
+        <div class="polaroid1" >  
+            <h3>Semester Weekday</h3>  
+            <img src="/static/img/study_weekday_pre.png" alt="study_weekday_pre" style="width:100%;height: 65%">  
+            
+            <p style="text-align: center;">RMSE: 28.727</p>
+        </div> 
+
+        <div class="polaroid2" >  
+            <h3>Semester Weekend</h3>  
+            <img src="/static/img/study_weekend_pre.png" alt="study_weekend_pre" style="width:100%;height: 65%">  
+            
+            <p style="text-align: center;">RMSE: 19.071</p>
+        </div> 
+
+        <div class="polaroid3" >  
+            <h3>Holiday Weekday</h3>  
+            <img src="/static/img/holiday_weekday_pre.png" alt="holiday_weekday_pre" style="width:100%;height: 65%">  
+            
+            <p style="text-align: center;">RMSE: 25.907</p>
+        </div> 
+
+
+        <div class="polaroid4" >  
+            <h3>Holiday Weekend</h3>  
+            <img src="/static/img/holiday_weekend_pre.png" alt="holiday_weekend_pre" style="width:100%;height: 65%">  
+            
+            <p style="text-align: center;">RMSE: 8.913</p>
+        </div> 
+    </section>
+
+  </body>
+</html>

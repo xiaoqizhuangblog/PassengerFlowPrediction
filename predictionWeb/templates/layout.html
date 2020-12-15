@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<style>
+	html, body { margin:0; padding:0; }
+	.top{
+		position: absolute;
+		top:0px;
+		width:100%;
+		height:7%;
+		background: #450455;
+	}
+
+	.link1{
+		position: absolute;
+		top:60px;
+	}
+
+	.link2{
+		position: absolute;
+		top:60px;
+		left: 60px;
+	}
+
+	.link3{
+		position: absolute;
+		top:60px;
+		left: 150px;
+	}
+
+
+    .box{
+		background-image: url("/static/img/busstation.jpg");
+		background-size: 100% 100%;
+		background-repeat: no-repeat no-repeat;
+		position: absolute; 
+		top: 80px;
+		left: 0; 
+		width: 100%; 
+		height: 40%; 
+	}
+
+	.box-mask{
+    height:100%;
+    width:100%;
+    background: rgba(0,0,0,.4);
+	}
+
+    .t{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white
+	}
+	
+	.preBox{
+		position: absolute;
+		top: 400px;
+		left: 500px;
+		text-align: center;
+	}
+
+    footer{
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:100px;
+        background-color: rgb(#faf6f6);
+    }
+</style>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+  </head>
+
+  <body>
+    <div class = "top">
+		<div style="font-family: Arial, Helvetica, sans-serif;color:white;font-size: 45px"> 
+			DATA7903 Capstone Project: TransLink Passenger Flow Prediction 
+		</div>
+	</div>
+
+	<a class = "link1" href="{{ url_for('home') }}" >Home</a>
+	<a class = "link2" href="{{ url_for('prediction') }}" >Prediction</a>
+	<a class = "link3" href="{{ url_for('model') }}" >Model</a>
+
+	<div class="box" >
+		<div class="box-mask"> </div>
+	</div>
+	<div class="t" >Route 66 Passenger Flow Prediction on UQ Lake Station</div>
+
+    {% block body %}{% endblock %}
+  </body>
+</html>
+
+
+
+
